@@ -167,30 +167,7 @@ class Hospital:
         self.txtPrescription.grid(row=0,column=0)
 
 
-       # ===============================Buttons=====================================#
-       
-        # btnPrescription=Button(Buttonframe,text="Prescription",bg="#228B22",fg="white",font=("arial",12,"bold"),width=23,height=16,padx=2,pady=6)
-        # btnPrescription.grid(row=0,column=0)
-    
-        
-        # btnPrescriptionData=Button(Buttonframe,text="Prescription Data",bg="green",fg="white",font=("arial",12,"bold"),width=23,height=16,padx=2,pady=6)
-        # btnPrescriptionData.grid(row=0,column=1)
-            
-            
-        # btnUpdate=Button(Buttonframe,text="Update",bg="green",fg="white",font=("arial",12,"bold"),width=23,height=16,padx=2,pady=6)
-        # btnUpdate.grid(row=0,column=2)
-        
-        
-                
-        # btnDelete=Button(Buttonframe,text="Delete",bg="green",fg="white",font=("arial",12,"bold"),width=23,height=16,padx=2,pady=6)
-        # btnDelete.grid(row=0,column=3)
-                
-        # btnClear=Button(Buttonframe,text="Clear",bg="green",fg="white",font=("arial",12,"bold"),width=23,height=16,padx=2,pady=6)
-        # btnClear.grid(row=0,column=4)
-    
-        # btnexit=Button(Buttonframe,text="Exit",bg="green",fg="white",font=("arial",12,"bold"),width=23,height=16,padx=2,pady=6)
-        # btnexit.grid(row=0,column=5)
-            
+       # ===============================Buttons=====================================
         
 
         style = ttk.Style()
@@ -282,7 +259,7 @@ class Hospital:
         if self.Nameoftablets.get()=="" or self.ref.get()=="":
           messagebox.showerror("Error","All fields are required")
         else:
-            conn=mysql.connector.connect(host="localhost",user="root",password="Sakshamroot@2007",database="mydata")
+            conn=mysql.connector.connect(host="localhost",user="your_mysql_username",password="your_mysql_password",database="mydata")
             my_cursor=conn.cursor()
             my_cursor.execute("INSERT INTO hospital VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
 (
@@ -310,7 +287,7 @@ class Hospital:
      
      
     def update_data(self):
-            conn=mysql.connector.connect(host="localhost",user="root",password="Sakshamroot@2007",database="mydata")
+            conn=mysql.connector.connect(host="localhost",user="your_mysql_username",password="your_mysql_password",database="mydata")
             my_cursor=conn.cursor()
             my_cursor.execute(
     """
@@ -349,7 +326,7 @@ class Hospital:
             messagebox.showinfo("Success", "Record updated successfully!")  
     
     def fatch_data(self):
-        conn=mysql.connector.connect(host="localhost",user="root",password="Sakshamroot@2007",database="mydata")
+        conn=mysql.connector.connect(host="localhost",user="your_mysql_username",password="your_mysql_password",database="mydata")
         my_cursor=conn.cursor()
         my_cursor.execute("select * from hospital")
         rows=my_cursor.fetchall()
@@ -406,8 +383,8 @@ class Hospital:
         try:
             conn = mysql.connector.connect(
                 host="localhost",
-                user="root",
-                password="Sakshamroot@2007",
+                user="your_mysql_username",
+                password="your_mysql_password",
                 database="mydata"
             )
             my_cursor = conn.cursor()
